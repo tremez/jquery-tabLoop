@@ -1,0 +1,33 @@
+{
+  "name": "jquery-tabLoop",
+  "description": "Plugin to better handle Tab Key",
+  "main": [
+    "js/jquery-tabLoop.js"
+  ],
+  "keywords": [
+    "tab",
+    "loop",
+    "tabLoop",
+    "tab"
+  ],
+  "authors": [
+    "Taras Remez <taras.remez@telix.com.ua>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tremez/jquery-tabLoop.git"
+  },
+  "version": "0.0.1",
+  "homepage": "https://github.com/tremez/jquery-tabLoop",
+  "moduleType": [
+    "globals"
+  ]
+}
