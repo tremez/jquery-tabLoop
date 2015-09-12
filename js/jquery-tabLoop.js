@@ -8,6 +8,9 @@
 			first = tabbables.filter(":first"),
 			last  = tabbables.filter(":last");
 		var currentIndex;
+		tabbables=tabbables.sort(function(a,b){
+			return parseInt($(a).attr('tabindex')) < parseInt($(b).attr('tabindex')) ?-1:1;
+		})
 		_.find(tabbables,function(el,index){
 			if(el===event.target){
 				currentIndex=index;
