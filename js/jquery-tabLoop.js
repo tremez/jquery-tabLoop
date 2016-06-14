@@ -11,6 +11,9 @@
 		tabbables=tabbables.sort(function(a,b){
 			return parseInt($(a).attr('tabindex')) < parseInt($(b).attr('tabindex')) ?-1:1;
 		})
+
+		console.log('--> TABBABLES',tabbables);
+
 		_.find(tabbables,function(el,index){
 			if(el===event.target){
 				currentIndex=index;
@@ -25,6 +28,16 @@
 		}
 		tabbables[currentIndex].focus(1);
 		event.preventDefault();
+		event.stopPropagation();
+	}
+
+	function onDisableKeyDown(event){
+		console.log('--> DISABLED TABLOOP HANDLER');
+		if ( event.keyCode !== $.ui.keyCode.TAB ) {
+			return;
+		}
+		event.preventDefault();
+		event.stopPropagation();
 	}
 
 
@@ -37,7 +50,9 @@
 		}
 
 		if ( action === "disable" ) {
-			this.off('keydown',onKeyDown);
+			console.log('--> DISABLED TABLOOP',this);
+			this.off('keydown');
+			this.on('keydown',onDisableKeyDown.bind(this));
 		}
 
 	};
