@@ -4,6 +4,9 @@
 		if ( event.keyCode !== $.ui.keyCode.TAB ) {
 			return;
 		}
+
+		var shiftKey=event.shiftKey;
+
 		var tabbables = this.find(":tabbable"),
 			first = tabbables.filter(":first"),
 			last  = tabbables.filter(":last");
@@ -22,7 +25,15 @@
 				return false;
 			}
 		})
-		currentIndex++;
+		if(shiftKey){
+			currentIndex--;
+
+		}else{
+			currentIndex++;
+		}
+		if(currentIndex<0){
+			currentIndex=tabbables.length-1;
+		}
 		if(tabbables.length===currentIndex){
 			currentIndex=0;
 		}
